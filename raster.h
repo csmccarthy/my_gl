@@ -11,7 +11,7 @@ void line(int x0, int y0, int x1, int y1, Image& img, Color color);
 void hline(int x0, int x1, int y, Image& img, Color color);
 void yline(int y0, int y1, int x, Image& img, Color color);
 void triangle(int x0, int y0, int x1, int y1, int x2, int y2, Image& img, Color color);
-Eigen::MatrixXf partial_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv);
-Eigen::MatrixXf finish_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv);
+void partial_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv);
+void finish_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv);
 
 Eigen::Vector3f decompose_to_3d(Eigen::Vector4f v);

@@ -131,7 +131,7 @@ void triangle(int x0, int y0, int x1, int y1, int x2, int y2, Image& img, Color 
 	}
 }
 
-Eigen::MatrixXf partial_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv) {
+void partial_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv) {
 	if (tbn(0, 1) == 0) {
 		tbn.row(2) = tbn.row(1);
 		tbn.row(1) = tbn.row(0);
@@ -153,11 +153,9 @@ Eigen::MatrixXf partial_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv) {
 	factor = tbn(0, 1) / tbn(1, 1);
 	tbn.row(0) -= tbn.row(1) * factor;
 	inv.row(0) -= inv.row(1) * factor;
-
-	return inv;
 }
 
-Eigen::MatrixXf finish_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv) {
+void finish_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv) {
 	
 	float factor;
 
@@ -176,8 +174,6 @@ Eigen::MatrixXf finish_rref(Eigen::MatrixXf& tbn, Eigen::MatrixXf& inv) {
 		tbn.row(i) -= tbn.row(2) * factor;
 		inv.row(i) -= inv.row(2) * factor;
 	}
-
-	return inv;
 }
 
 void bary_triangle(Eigen::Vector3f v1, Eigen::Vector3f v2, Eigen::Vector3f v3, float* zbuffer, Image& img, Model& head,

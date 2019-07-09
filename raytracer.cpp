@@ -97,7 +97,7 @@ int main(int argc, char**argv) {
 
 	partial_rref(tbn, partial_inv);
 
-	partial_inv = finish_rref(tbn, partial_inv);
+	finish_rref(tbn, partial_inv);
 
 
 	std::cout << tbn;
